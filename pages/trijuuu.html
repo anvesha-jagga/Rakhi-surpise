@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rakhi 2025</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('../assets/images/bg2.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .message-section {
+      opacity: 0;
+      transition: opacity 1s ease;
+      padding: 60px 20px;
+      text-align: center;
+      color: #3b2e2e;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      margin: 100px auto;
+      max-width: 800px;
+    }
+
+    .message-section.reveal {
+      opacity: 1;
+    }
+
+    .message-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .message-line {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .message-line:nth-child(1) { animation-delay: 0.2s; }
+    .message-line:nth-child(2) { animation-delay: 0.4s; }
+    .message-line:nth-child(3) { animation-delay: 0.6s; }
+    .message-line:nth-child(4) { animation-delay: 0.8s; }
+    .message-line:nth-child(5) { animation-delay: 1s; }
+    .message-line:nth-child(6) { animation-delay: 1.2s; }
+    .message-line:nth-child(7) { animation-delay: 1.4s; }
+
+    .roast-note {
+      font-style: italic;
+      color: #8c2f39;
+      font-weight: 500;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 600px) {
+  .message-line {
+    font-size: 1rem; /* Smaller text for mobile */
+    transform: translateY(30px); /* Slightly more dramatic slide */
+    animation: fadeUpMobile 1s ease forwards;
+  }
+
+  @keyframes fadeUpMobile {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <section class="message-section">
+    <div class="message-container">
+      <p class="message-line">Not every Rakhi needs noise.<br>Some are quiet — like the love that stays.</p>
+
+      <p class="message-line">Bhaiya, you’ve always been there in ways loud and silent.</p>
+      <p class="message-line">Bhabhi, you’ve added a grace this bond didn’t know it needed.</p>
+      <p class="message-line">And little one, you bring the kind of chaos we’d never trade.</p>
+
+      <p class="message-line">Here’s to all the memories made quietly —<br>and all the love you three have wrapped me in.</p>
+
+      <p class="message-line"><strong>Happy Rakhi!!!!💗</strong></p>
+      <!-- <p class="message-line"><strong>Always yours.</strong></p> -->
+
+      <p class="message-line roast-note">PS: I tied Rakhi. That means snacks are my birthright now. 🍪</p>
+    </div>
+  </section>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const msgSection = document.querySelector('.message-section');
+      const rect = msgSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      if (rect.top <= windowHeight - 150) {
+        msgSection.classList.add('reveal');
+      }
+    });
+  </script>
+
+</body>
+</html>

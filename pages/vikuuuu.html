@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Rakhi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      overflow-x: hidden;
+      font-family: 'Mea Culpa', cursive;
+      background: url('../assets/images/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fbe4d8;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Optional: Decorative flower element */
+    /* 
+    .flower {
+      width: 200px;
+      height: 200px;
+      background: url('../assets/images/flower.png') no-repeat center center;
+      background-size: contain;
+      position: absolute;
+      top: 20%;
+      right: 10%;
+      opacity: 0.8;
+    }
+    */
+
+    h1 {
+      font-size: 8rem;
+      /* letter-spacing: 0.1em; */
+      line-height: 1;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 200, 230, 0.3);
+      animation: fadeInUp 2s ease-out forwards;
+    }
+
+    .sub {
+      font-size: 6rem;
+      /* letter-spacing: 0.2em; */
+      margin-top: 0.5rem;
+      text-shadow: 0 0 10px rgba(255, 200, 230, 0.4);
+      animation: fadeInUp 2.5s ease-out forwards;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 30px;
+      font-size: 1.2rem;
+      color: #dfb6b2;
+      opacity: 0.7;
+    animation: fadeIn 3s inherit both forwards;
+
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0.7;
+      }
+    }
+    #confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="flower"></div>
+    <h1>Happy</h1>
+    <div class="sub">Rakhi</div>
+    <div class="scroll-hint">▼ Scroll to decode the message</div>
+  </section>
+  <canvas id="confetti-canvas"></canvas>
+
+  <section class="message-section">
+  <div class="glass-box">
+    <p class="line">Happy Rakhi, bhaiya.</p>
+    <p class="line delay1">You’ve always had that I’m-chill-but-also-kind-of-the-main-character energy.</p>
+    <p class="line delay2">It was lowkey irritating. But also kind of fun.</p>
+    <p class="line delay3">We weren’t super close-close (thanks, age gap + your senior citizen wisdom),</p>
+    <p class="line delay4">but you were always there teasing me endlessly,</p>
+    <p class="line delay5">dragging the whole cousin squad into those chaotic long drives,</p>
+    <p class="line delay6">and somehow making things more fun just by existing.</p>
+    <p class="line delay7">I mean, I mostly remember just trying to survive the roast sessions.</p>
+    <p class="line delay8">So here’s to you, part menace, part mystery,</p>
+    <p class="line delay9">part “how is he still cool without trying?”</p>
+    <p class="line delay10">If Rakhi had a mic drop moment?</p>
+    <p class="line delay11">It’s literally me still here after all your bullying 😌</p>
+    <p class="line delay12">Also. You’re one of my fav humans.</p>
+    <p class="line delay13">Not that I’d say it twice.</p>
+
+    <button class="qr-btn">Not bribery... just tax 🫣</button>
+
+    <div class="qr-wrapper">
+      <img src="../assets/images/qr.jpg" alt="QR Code" class="qr-hidden"/>
+    </div>
+  </div>
+  
+</section>
+
+<style>
+.message-section {
+  min-height: 100vh;
+  padding: 100px 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(25, 0, 25, 0.4);
+  backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 2;
+}
+
+.glass-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 20px;
+  max-width: 700px;
+  width: 90%;
+  text-align: left;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(255, 200, 230, 0.1);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+.line {
+  font-size: 1.3rem;
+  line-height: 1.9;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal 1s ease-out forwards;
+}
+
+.delay1 { animation-delay: 0.4s; }
+.delay2 { animation-delay: 0.8s; }
+.delay3 { animation-delay: 1.2s; }
+.delay4 { animation-delay: 1.6s; }
+.delay5 { animation-delay: 2.0s; }
+.delay6 { animation-delay: 2.4s; }
+.delay7 { animation-delay: 2.8s; }
+.delay8 { animation-delay: 3.2s; }
+.delay9 { animation-delay: 3.6s; }
+.delay10 { animation-delay: 4.0s; }
+.delay11 { animation-delay: 4.4s; }
+.delay12 { animation-delay: 4.8s; }
+.delay13 { animation-delay: 5.2s; }
+
+.qr-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.qr-hidden {
+  width: 140px;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  margin-top: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Reveal QR after all lines are shown */
+.message-section.reveal .qr-hidden {
+  opacity: 1;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.qr-btn {
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid #fbe4d8;
+  color: #fbe4d8;
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease;
+}
+.qr-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.qr-hidden {
+  opacity: 0;
+  margin-top: 1.5rem;
+  width: 150px;
+  transition: opacity 0.8s ease-in-out;
+}
+
+</style>
+
+<script>
+  // Scroll trigger to reveal message section
+  window.addEventListener('scroll', () => {
+    const msgSection = document.querySelector('.message-section');
+    const rect = msgSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    if (rect.top <= windowHeight - 150) {
+      msgSection.classList.add('reveal');
+    }
+  });
+
+  // Optional QR reveal via button
+  window.addEventListener('DOMContentLoaded', () => {
+    const qrBtn = document.querySelector('.qr-btn');
+    const qrCode = document.querySelector('.qr-hidden');
+
+    if (qrBtn && qrCode) {
+      qrBtn.addEventListener('click', () => {
+        qrCode.style.opacity = '1';
+        qrBtn.style.display = 'none'; // Hide button after reveal
+      });
+    }
+  });
+</script>
+    <script>
+        // Scroll to top functionality
+        window.addEventListener('scroll', () => {
+        const scrollHint = document.querySelector('.scroll-hint');
+        if (window.scrollY > 100) {
+            scrollHint.style.display = 'none';
+        } else {
+            scrollHint.style.display = 'block';
+        }
+        });
+</script>
+<script>
+  const confettiCanvas = document.getElementById("confetti-canvas");
+  const ctx = confettiCanvas.getContext("2d");
+  confettiCanvas.width = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+
+  const confettiCount = 150;
+  const confetti = [];
+
+  for (let i = 0; i < confettiCount; i++) {
+    confetti.push({
+      x: Math.random() * confettiCanvas.width,
+      y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+      r: Math.random() * 6 + 4,
+      d: Math.random() * confettiCount,
+      color: `hsl(${Math.floor(Math.random() * 360)}, 70%, 60%)`,
+      tilt: Math.floor(Math.random() * 10) - 10,
+      tiltAngle: 0,
+      tiltAngleIncrement: Math.random() * 0.07 + 0.05,
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    for (let i = 0; i < confettiCount; i++) {
+      const c = confetti[i];
+      ctx.beginPath();
+      ctx.lineWidth = c.r / 2;
+      ctx.strokeStyle = c.color;
+      ctx.moveTo(c.x + c.tilt + c.r / 4, c.y);
+      ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 4);
+      ctx.stroke();
+    }
+
+    update();
+  }
+
+  function update() {
+    for (let i = 0; i < confettiCount; i++) {
+      const c = confetti[i];
+      c.tiltAngle += c.tiltAngleIncrement;
+      c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
+      c.tilt = Math.sin(c.tiltAngle - i / 3) * 15;
+
+      if (c.y > confettiCanvas.height) {
+        c.y = -10;
+        c.x = Math.random() * confettiCanvas.width;
+      }
+    }
+  }
+
+  (function animateConfetti() {
+    draw();
+    requestAnimationFrame(animateConfetti);
+  })();
+</script>
+
+
+
+</body>
+</html>

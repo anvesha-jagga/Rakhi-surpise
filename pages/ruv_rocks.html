@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rakhi Playlist – RUV_rocks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
+    }
+
+    header {
+      position: relative;
+      padding: 5rem 2rem 8rem; /* increased bottom padding to prevent clipping under wave */
+      background: linear-gradient(135deg, #012a4a, #35cab6, #00bbf9);
+      background-size: 400% 400%;
+      animation: gradientFlow 8s ease infinite;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .typing-title {
+  display: inline-block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0,255,255,0.6);
+  margin: 0 auto;
+  white-space: nowrap;
+}
+
+.typing-text {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  border-right: none;
+  animation: typing 4s steps(40, end) forwards;
+  white-space: nowrap;
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 2.2rem;
+  background: rgba(255,255,255,0.75);
+  margin-left: 2px;
+  vertical-align: bottom;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+    .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 120px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%230f0f0f" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,154.7C384,181,480,203,576,181.3C672,160,768,96,864,90.7C960,85,1056,139,1152,170.7C1248,203,1344,213,1392,218.7L1440,224V320H0Z"></path></svg>') repeat-x;
+  background-size: contain;
+  animation: waveMove 8s linear infinite;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 100px;
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: contain;
+  opacity: 0.7;
+}
+
+.wave1 {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'><path fill='%230f0f0f' fill-opacity='1' d='M0,160L60,149.3C120,139,240,117,360,133.3C480,149,600,203,720,218.7C840,235,960,213,1080,208C1200,203,1320,181,1380,170.7L1440,160V320H0Z'></path></svg>");
+  animation: wave1 7s linear infinite;
+}
+
+.wave2 {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'><path fill='%230f0f0f' fill-opacity='1' d='M0,160L60,149.3C120,139,240,117,360,133.3C480,149,600,203,720,218.7C840,235,960,213,1080,208C1200,203,1320,181,1380,170.7L1440,160V320H0Z'></path></svg>");
+  animation: wave2 16s linear infinite reverse;
+  opacity: 0.5;
+}
+
+@keyframes wave1 {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes wave2 {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+
+    /* OPTIONAL ALTERNATIVE to .wave — comment above and uncomment below for angled cut
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: #0f0f0f;
+      clip-path: polygon(0 70%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    */
+
+    .content {
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+      z-index: 2;
+      position: relative;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: #00f5d4;
+      font-weight: bold;
+      transition: color 0.5s ease;
+    }
+
+    .tracklist {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+    }
+
+    .tracklist li {
+      padding: 0.75rem 1rem;
+      border-left: 6px solid;
+      border-image: linear-gradient(135deg, #00f5d4, #00bbf9);
+      border-image-slice: 1;
+      margin: 1rem 0;
+      background: #1a1a1a;
+      border-radius: 5px;
+      font-family: 'Space Mono', monospace;
+      transition: border-image 0.5s ease, transform 0.2s ease;
+    }
+
+.tracklist li {
+  border: 2px solid transparent;
+  transition: background 0.5s, color 0.5s, border-image 0.5s;
+}
+
+
+.tracklist li:hover {
+  background: linear-gradient(90deg, #00bbf9 0%, #00f5d4 100%);
+  color: #0f0f0f;
+  border: 2px solid;
+  border-image: linear-gradient(135deg, #00bbf9, #00f5d4);
+  border-image-slice: 1;
+}
+
+    
+
+    .qr-section {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .qr-button {
+      background: #00bbf9;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s ease;
+    }
+
+    .qr-button:hover {
+      background: #00f5d4;
+    }
+
+    .qr-image {
+      margin-top: 1.5rem;
+      display: none;
+      max-width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 class="typing-title">
+  <span class="typing-text">🎧 The Rakhi Playlist You Didn’t Know You Needed</span><span class="typing-cursor"></span>
+</h1>
+    <div class="wave-container">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+    </div>
+
+
+
+  </header>
+
+  <div class="content">
+    <p><span class="highlight">Happy Rakhi</span> Dear Bhaiya, sarcasm? Check. Chaos? Always. Love? Well-hidden, but always there — just like this playlist. </p>
+
+    <ul class="tracklist">
+      <li>Track 01 – The One Where You Still Owe Me a Gift</li>
+      <li>Track 02 – That Time You Were Right (Never Happened)</li>
+      <li>Track 03 – "Beta, Coding Karlo" (feat. Bhaiya Pressure)</li>
+      <li>Track 04 – Judging Me Silently.mp3</li>
+      <li>Track 05 – Mood: Cool Cousin Energy</li>
+      <li>Track 06 – She Said “I’ll Learn Coding Too” Once... 2 Years Ago</li>
+      <li>Track 07 – Jo QR Se Gift Naa De Wo Gift Nahi</li>
+      <li>Track 08 – No, I Didn’t Cry While Making This. You Did.</li>
+      <li>Track 09 – Totally Not Competing for Best Cousin (but winning)</li>
+      <li><strong>Track 10 – I Made This So You’d Feel Something. Did it work?</strong></li>
+    </ul>
+
+    <div class="qr-section">
+      <button class="qr-button" onclick="document.getElementById('qr').style.display='block'">
+        🎁 Totally Not a Bribe Button
+      </button>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #aaa;">(Just in case you were planning to spoil me too 😌)</p>
+      <img id="qr" class="qr-image" src="../assets/images/qr.jpg" alt="Secret QR" />
+    </div>
+  </div>
+
+  <footer>
+    Made with ✨ sarcasm & sibling vibes.
+  </footer>
+
+  
+
+</body>
+</html>

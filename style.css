@@ -1,0 +1,58 @@
+body {
+  font-family: 'Baloo 2', cursive;
+  background: linear-gradient(135deg, #fdbedf, #e0f7ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+input {
+  padding: 12px 20px;
+  width: 80%;
+  border: 2px solid #ff69b4;
+  border-radius: 12px;
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #ff69b4;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #ff3385;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}

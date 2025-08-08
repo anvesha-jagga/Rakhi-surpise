@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Rakhi – Kajo_katli</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cormorant Garamond', serif;
+      background: url('../assets/images/bg2.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #3a2c2c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    .envelope {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      max-width: 600px;
+      margin: 2rem;
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .message {
+      font-size: 1.4rem;
+      line-height: 1.9;
+      white-space: pre-wrap;
+      opacity: 0;
+      animation: shimmerScroll 2s ease forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes shimmerScroll {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .message {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* 🎀 QR Styles */
+    .qr-container {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .qr-btn {
+      background: rgba(70, 36, 36, 0.8);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(223, 157, 157, 0.374);
+    }
+
+    .qr-btn:hover {
+      background: rgb(135, 67, 67);
+      transform: scale(1.05);
+    }
+
+    .qr-hidden {
+      width: 160px;
+      margin-top: 1rem;
+      opacity: 0;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
+
+    .qr-visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="envelope">
+    <div class="message">
+      This Rakhi feels a little different.
+
+      Not just because bhaiya’s now officially grown up  
+      (don’t worry, I won’t let him forget that)  
+      but because there’s someone new in our world.
+
+      Hi, bhabhi.
+
+      We haven’t met yet —  
+      It’s new, yes.   
+      It’s just… full of blank pages.
+
+      So here’s to the ones we’ll fill,  
+      in our own way, in our own time.
+
+      And bhaiya —  
+      you’ve always been the kind who surprises us.  
+      This one might just be your best plot twist.
+
+      Happy Rakhi, both of you.
+
+      *(PS: Sponsor my dayoutsssss if this made you smile🫣)*
+    </div>
+
+    <!-- 🎁 Bonus Button (Hidden QR Trigger) -->
+    <div class="qr-container">
+      <button class="qr-btn">Nothing to see here... unless you believe in ✨ bonus content ✨</button>
+      <img src="../assets/images/qr.jpg" alt="QR Code" class="qr-hidden" />
+    </div>
+  </div>
+
+  <!-- 🎯 QR Reveal Button Logic -->
+  <script>
+    const qrBtn = document.querySelector('.qr-btn');
+    const qrCode = document.querySelector('.qr-hidden');
+
+    qrBtn.addEventListener('click', () => {
+      qrCode.classList.add('qr-visible');
+      qrBtn.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
