@@ -21,6 +21,6 @@ The website maps specific **usernames to custom greeting pages**, allowing each 
 Personalized greeting pages were created for:
 
 - kajo_katli
-- @vikuuuu
-- @trijuuu
+- vikuuuu
+- trijuuu
 - ruv_rocks
